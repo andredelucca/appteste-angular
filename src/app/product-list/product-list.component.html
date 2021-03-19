@@ -1,15 +1,19 @@
 <h2>Produtos</h2>
 <div *ngFor="let product of products">
+  <img alt="" class="image-galery" src={{product.imageUrl}}/>
   <h3>
   <a [title]="product.name + ' details'">
     {{ product.name }}
   </a>
+  <p *ngIf="product.price">
+    Preço: R$ {{ product.price }}
+  </p>
   <p *ngIf="product.description">
     Descrição: {{ product.description }}
   </p>
   </h3>
   <button (click)="share()">
-    Share
+    Compartilhar
   </button>
   <app-product-alerts
   [product]="product"
